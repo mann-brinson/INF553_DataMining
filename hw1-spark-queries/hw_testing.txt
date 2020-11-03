@@ -1,0 +1,19 @@
+#VOCAREUM TESTING
+
+#ALWAYS RUN
+export PYSPARK_PYTHON=python3.6
+
+#TEST 1 #PASS
+spark-submit task1.py $ASNLIB/publicdata/review.json task1_ans $ASNLIB/publicdata/stopwords 2018 10 10
+
+#TEST 2 #PASS
+spark-submit task2.py $ASNLIB/publicdata/review.json $ASNLIB/publicdata/business.json task2_no_spark_ans no_spark 20
+
+#TEST 3 #PASS
+spark-submit task2.py $ASNLIB/publicdata/review.json $ASNLIB/publicdata/business.json task2_spark_ans spark 20
+
+#TEST 4 #PASS
+spark-submit task3.py $ASNLIB/publicdata/review.json task3_default_ans default 20 50
+
+#TEST 5
+spark-submit task3.py $ASNLIB/publicdata/review.json task3_customized_ans customized 20 50

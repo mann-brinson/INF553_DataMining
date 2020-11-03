@@ -1,0 +1,26 @@
+#ALWAYS RUN
+export PYSPARK_PYTHON=python3.6
+
+#Task 1 - WORKING
+spark-submit task1.py $ASNLIB/publicdata/train_review.json task1.res
+
+
+#Task 2 - WORKING
+#Train
+spark-submit task2train.py $ASNLIB/publicdata/train_review.json task2.model $ASNLIB/publicdata/stopwords
+
+#Predict
+spark-submit task2predict.py $ASNLIB/publicdata/test_review.json task2.model task2.predict
+
+
+#Task 3
+#Case 1 - Item Based CF
+#Train: $ spark-submit task3train.py $ASNLIB/publicdata/train_review.json task3item.model item_based
+
+#Predict: $ spark-submit task3predict.py $ASNLIB/publicdata/train_review.json $ASNLIB/publicdata/test_review.json task3item.model task3item.predict item_based
+
+
+#Case 2 - User Based CF
+#Train: $ spark-submit task3train.py $ASNLIB/publicdata/train_review.json task3user.model user_based
+
+#Predict: $ spark-submit task3predict.py $ASNLIB/publicdata/train_review.json $ASNLIB/publicdata/test_review.json task3user.model task3user.predict user_based

@@ -1,0 +1,15 @@
+#ALWAYS RUN
+export PYSPARK_PYTHON=python3.6
+
+#Task 1 - WORKING
+# spark-submit --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11 task1.py <filter
+threshold> <input_file_path> <community_output_file_path>
+
+spark-submit --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11 task1.py 7 $ASNLIB/publicdata/ub_sample_data.csv part1_community_output.txt
+
+
+#Task 2 - Part 1  & Part 2
+# spark-submit task2.py <filter threshold> <input_file_path> <betweenness_output_file_path>
+<community_output_file_path>
+
+spark-submit task2.py 7 $ASNLIB/publicdata/ub_sample_data.csv betweenness_scores.txt community_output.txt

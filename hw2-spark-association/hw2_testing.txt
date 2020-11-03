@@ -1,0 +1,19 @@
+#ALWAYS RUN
+export PYSPARK_PYTHON=python3.6
+
+#Task 1
+#spark-submit task1.py <case number> <support> <input_file_path> <output_file_path>
+
+spark-submit task1.py 1 4 $ASNLIB/publicdata/small2.csv task1_case1_ans
+
+spark-submit task1.py 2 9 $ASNLIB/publicdata/small2.csv task1_case2_ans
+
+
+#Task 2
+#spark-submit task2.py <filter thresh> <support> <input_file_path> <output_file_path>
+
+spark-submit task2.py 70 50 user_business.csv task2_ans
+
+spark-submit task2.py 70 50 $ASNLIB/publicdata/test/ub.csv task2_ans
+
+spark-submit task2.py 100 45 $ASNLIB/publicdata/test/ub.csv task2_ans
